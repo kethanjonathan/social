@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complaints & Concerns - CareConnect Uganda</title>
+    <meta name="description"
+        content="Submit a confidential complaint or concern regarding your experience with CareConnect Uganda clinical services.">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body style="background: #fdfdfd;">
+    <header id="header">
+        <div class="header-container">
+            <div class="header-logo"><a href="index.html">
+                    <div style="display: flex; align-items: center; gap: 10px;"><i data-lucide="shield-check"
+                            color="#004a99" size="50"></i>
+                        <h1 style="font-size: 24px; color: #004a99; margin: 0;">CareConnect</h1>
+                    </div>
+                </a></div>
+            <nav class="header-nav">
+                <a href="index.html">Home</a>
+                <a href="social-workers.html">Social Workers</a>
+                <a href="groups.html">Group Sessions</a>
+                <a href="organizations.html">Organizations</a>
+                <a href="plans.html">Pricing & Plans</a>
+                <a href="resources.html">Resources</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="login.html" class="btn-porto" style="padding: 8px 15px; color: #fff;">Client
+                    Portal</a>
+                <button class="theme-toggle"
+                    style="background: none; border: none; cursor: pointer; color: var(--porto-primary); margin-left: 15px; display: flex; align-items: center;"
+                    title="Toggle Dark/Light Mode">
+                    <i class="theme-icon" data-lucide="moon" size="18"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="section">
+        <div class="container" style="max-width: 700px;">
+            <div style="text-align: center; margin-bottom: 50px;">
+                <h2 style="font-size: 36px; color: var(--porto-primary);">Complaints <strong>& Concerns</strong></h2>
+                <p style="font-size: 18px; color: #666;">Your feedback helps us maintain the highest clinical standards.
+                    If you are not satisfied with a service or experience, please let us know.</p>
+            </div>
+
+            <div class="portal-wrapper"
+                style="background: #fff; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+                <div
+                    style="margin-bottom: 30px; padding: 15px; background: #fff8f8; border: 1px solid #fee2e2; border-radius: 8px; font-size: 13px; color: #991b1b;">
+                    <i data-lucide="shield-alert" size="16" style="vertical-align: middle; margin-right: 8px;"></i>
+                    <strong>Confidentiality Notice:</strong> All complaints are handled by our clinical compliance
+                    officer and remain strictly confidential.
+                </div>
+
+                <form
+                    onsubmit="event.preventDefault(); alert('Your concern has been submitted and will be reviewed by our clinical compliance team within 48 hours.'); window.location.href='index.html';">
+                    <div style="margin-bottom: 20px;">
+                        <label for="compName" style="display: block; font-weight: 700; margin-bottom: 8px;">Full Name
+                            (Optional)</label>
+                        <input type="text" id="compName" placeholder="Leave blank for anonymous submission"
+                            style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px;">
+                    </div>
+
+                    <div style="margin-bottom: 20px;">
+                        <label for="compType" style="display: block; font-weight: 700; margin-bottom: 8px;">Nature of
+                            Concern</label>
+                        <select id="compType" required
+                            style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px;">
+                            <option value="">- Select Category -</option>
+                            <option value="service">Quality of Clinical Service</option>
+                            <option value="conduct">Professional Misconduct</option>
+                            <option value="privacy">Privacy / Confidentiality Breach</option>
+                            <option value="technical">Technical / Platform Issue</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div style="margin-bottom: 25px;">
+                        <label for="compDesc" style="display: block; font-weight: 700; margin-bottom: 8px;">Detailed
+                            Description</label>
+                        <textarea id="compDesc" required placeholder="Please describe what happened and when..."
+                            style="width: 100%; height: 150px; padding: 15px; border: 1px solid #ddd; border-radius: 4px; font-family: inherit;"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-porto" style="width: 100%; padding: 16px; font-size: 16px;">Submit
+                        Confidential Complaint</button>
+                </form>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <p style="font-size: 14px; color: #777;">You can also email our compliance team directly at <a
+                        href="mailto:compliance@careconnect.org"
+                        style="color: var(--porto-primary); font-weight: 700;">compliance@careconnect.org</a></p>
+            </div>
+        </div>
+    </main>
+
+    <footer id="footer">
+        <div class="container" style="text-align: center;">
+            <p>&copy; 2026 CareConnect Uganda. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <script src="app.js"></script>
+</body>
+
+</html>

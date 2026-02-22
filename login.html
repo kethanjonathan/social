@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - CareConnect Uganda</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body style="background: #f4f4f4; height: 100vh; display: flex; flex-direction: column;">
+    <header id="header">
+        <div class="header-container" style="height: 80px;">
+            <div class="header-logo"><a href="index.html">
+                    <div style="display: flex; align-items: center; gap: 10px;"><i data-lucide="shield-check"
+                            color="#004a99" size="40"></i>
+                        <h1 style="font-size: 20px; color: #004a99; margin: 0;">CareConnect</h1>
+                    </div>
+                </a></div>
+        </div>
+    </header>
+
+    <main style="flex: 1; display: flex; align-items: center; justify-content: center; padding: 20px;">
+        <div class="portal-wrapper"
+            style="background: #fff; width: 100%; max-width: 400px; padding: 40px; box-shadow: 0 10px 25px rgba(0,0,0,0.05);">
+            <h2 style="text-align: center; margin-bottom: 30px;">Member <strong>Login</strong></h2>
+            <form onsubmit="handleMemberLogin(event)">
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; font-weight: 700; margin-bottom: 8px;">Email Address</label>
+                    <input type="email" id="memberEmail" required
+                        style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px;">
+                </div>
+                <div style="margin-bottom: 25px;">
+                    <label style="display: block; font-weight: 700; margin-bottom: 8px;">Password</label>
+                    <input type="password" required
+                        style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px;">
+                </div>
+                <button type="submit" class="btn-porto" style="width: 100%; padding: 12px;">Sign In</button>
+            </form>
+
+            <div style="margin-top: 20px; text-align: center;">
+                <p style="font-size: 13px; color: #777; margin-bottom: 15px;">— Or sign in with —</p>
+                <button onclick="loginWithGoogle()"
+                    style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px; background: #fff; border: 1px solid #ddd; padding: 10px; border-radius: 4px; cursor: pointer; font-size: 14px; color: #444; font-weight: 700;">
+                    <img src="https://www.gstatic.com/images/branding/product/1x/gsa_512dp.png" width="18"
+                        alt="Google Logo">
+                    Continue with Google
+                </button>
+            </div>
+            <div
+                style="margin-top: 25px; text-align: center; font-size: 14px; border-top: 1px solid #eee; padding-top: 20px;">
+                <p>New to CareConnect? <a href="register.html" style="font-weight: 700;">Create an Account</a></p>
+            </div>
+
+            <script>
+                function handleMemberLogin(e) {
+                    e.preventDefault();
+                    const email = document.getElementById('memberEmail').value;
+
+                    let role = 'Client';
+                    if (email.includes('worker')) role = 'Social Worker';
+                    if (email.includes('volunteer')) role = 'Volunteer';
+                    if (email.includes('admin')) role = 'Super Admin';
+
+                    localStorage.setItem('adminLoggedIn', 'true');
+                    localStorage.setItem('userRole', role);
+
+                    redirectByRole(role);
+                }
+
+                function loginWithGoogle() {
+                    localStorage.setItem('adminLoggedIn', 'true');
+                    localStorage.setItem('userRole', 'Client');
+                    redirectByRole('Client');
+                }
+
+                function redirectByRole(role) {
+                    if (role === 'Social Worker') window.location.href = 'social-worker/dashboard.html';
+                    else if (role === 'Volunteer') window.location.href = 'volunteer/dashboard.html';
+                    else if (role === 'Super Admin' || role === 'Manager') window.location.href = 'admin/dashboard.html';
+                    else window.location.href = 'client/dashboard.html';
+                }
+
+                lucide.createIcons();
+            </script>
+</body>
+
+</html>

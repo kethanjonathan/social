@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Payment - CareConnect Uganda</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .payment-card {
+            border: 2px solid #eee;
+            border-radius: 12px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .payment-card:hover {
+            border-color: var(--porto-primary);
+            background: #f0f7ff;
+        }
+
+        .payment-card.active {
+            border-color: var(--porto-primary);
+            background: #eef6ff;
+            box-shadow: 0 4px 12px rgba(0, 74, 153, 0.1);
+        }
+
+        .payment-logo {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body style="background: #f4f7fa;">
+    <header id="header">
+        <div class="header-container">
+            <div class="header-logo"><a href="index.html">
+                    <div style="display: flex; align-items: center; gap: 10px;"><i data-lucide="shield-check"
+                            color="#004a99" size="40"></i>
+                        <h1 style="font-size: 20px; color: #004a99; margin: 0;">CareConnect</h1>
+                    </div>
+                </a></div>
+            <nav class="header-nav"><a href="dashboard.html">Cancel</a></nav>
+        </div>
+    </header>
+
+    <main class="section">
+        <div class="container" style="max-width: 600px;">
+            <div class="portal-wrapper"
+                style="background: #fff; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+                <h2 style="text-align: center; margin-bottom: 10px;">Secure <strong>Checkout</strong></h2>
+                <p style="text-align: center; color: #777; margin-bottom: 30px;">Clinical Care Session Upgrade</p>
+
+                <div
+                    style="background: #f9fafb; padding: 20px; border-radius: 8px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-weight: 700;">Total Investment:</span>
+                    <span id="sessionTotal" style="font-size: 24px; font-weight: 800; color: var(--porto-primary);">UGX
+                        50,000</span>
+                </div>
+
+                <!-- Coupon / Promo Code Section -->
+                <div
+                    style="margin-bottom: 25px; padding: 15px; background: #fff; border: 1px solid #eee; border-radius: 8px;">
+                    <label
+                        style="display: block; font-size: 12px; font-weight: 700; color: #888; margin-bottom: 8px; text-transform: uppercase;">Have
+                        a Coupon or Referral Code?</label>
+                    <div style="display: flex; gap: 10px;">
+                        <input type="text" id="promoCode" placeholder="Enter code (e.g. FREE-SESSION)"
+                            style="flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 13px;">
+                        <button type="button" class="btn-porto"
+                            style="padding: 8px 15px; font-size: 12px; background: #444;"
+                            onclick="applyPromo()">Apply</button>
+                    </div>
+                    <p id="promoStatus" style="display: none; margin: 8px 0 0; font-size: 11px; font-weight: 700;"></p>
+                </div>
+
+                <!-- Ethical Safeguard Notice -->
+                <div
+                    style="margin-bottom: 30px; padding: 15px; background: #fff8f8; border: 1px dashed #e36159; border-radius: 8px; text-align: center;">
+                    <p style="margin: 0; font-size: 13px; color: #e36159; font-weight: 700;">
+                        <i data-lucide="info" size="14" style="vertical-align: middle; margin-right: 5px;"></i>
+                        CareConnect Policy: Free support is available for vulnerable clients.
+                    </p>
+                </div>
+
+                <div id="paymentMethods">
+                    <label style="display: block; font-weight: 700; margin-bottom: 15px;">Select Mobile Money
+                        Provider</label>
+
+                    <!-- MTN Uganda -->
+                    <div class="payment-card" onclick="selectProvider('mtn', this)">
+                        <div
+                            style="background: #ffcc00; padding: 5px; border-radius: 6px; display: flex; align-items: center; justify-content: center;">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/MTN_Logo.svg/1024px-MTN_Logo.svg.png"
+                                class="payment-logo" alt="MTN MoMo" style="width: 40px; height: 40px;">
+                        </div>
+                        <div>
+                            <h4 style="margin: 0;">MTN MoMo</h4>
+                            <p style="margin: 0; font-size: 12px; color: #777;">Secure Mobile Money Payment</p>
+                        </div>
+                    </div>
+
+                    <!-- Airtel Uganda -->
+                    <div class="payment-card" onclick="selectProvider('airtel', this)">
+                        <div
+                            style="background: #e11900; padding: 5px; border-radius: 6px; display: flex; align-items: center; justify-content: center;">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Airtel_Uganda_Logo.png/1024px-Airtel_Uganda_Logo.png"
+                                class="payment-logo" alt="Airtel Money" style="width: 40px; height: 40px;">
+                        </div>
+                        <div>
+                            <h4 style="margin: 0;">Airtel Money</h4>
+                            <p style="margin: 0; font-size: 12px; color: #777;">Fast & Reliable Transaction</p>
+                        </div>
+                    </div>
+                </div>
+
+                <form id="paymentForm" style="margin-top: 30px; display: none;" onsubmit="processPayment(event)">
+                    <div style="margin-bottom: 20px;">
+                        <label id="phoneLabel" style="display: block; font-weight: 700; margin-bottom: 8px;">MTN
+                            Number</label>
+                        <input type="tel" id="phoneInput" required placeholder="07XX XXX XXX"
+                            style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 16px;">
+                    </div>
+                    <button type="submit" id="payBtn" class="btn-porto"
+                        style="width: 100%; padding: 18px; font-size: 16px;">Pay UGX 50,000</button>
+                    <p style="text-align: center; font-size: 12px; color: #999; margin-top: 15px;"><i data-lucide="lock"
+                            size="12"></i> Encrypted by CareConnect Payments</p>
+                </form>
+
+                <div id="processingState" style="display: none; text-align: center; padding: 40px 0;">
+                    <div
+                        style="width: 60px; height: 60px; border: 4px solid #f3f3f3; border-top: 4px solid var(--porto-primary); border-radius: 50%; margin: 0 auto 20px; animation: spin 1s linear infinite;">
+                    </div>
+                    <h3>Processing Payment...</h3>
+                    <p style="color: #666;">Please check your phone for the PIN prompt.</p>
+                </div>
+
+                <div id="successState" style="display: none; text-align: center; padding: 40px 0;">
+                    <div
+                        style="width: 80px; height: 80px; background: #e0f2f1; color: #0d9488; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
+                        <i data-lucide="check" size="40"></i>
+                    </div>
+                    <h2 id="successTitle" style="color: #0d9488;">Payment Successful!</h2>
+                    <p id="successText" style="color: #666; margin-bottom: 30px;">Your Clinical Care session has been
+                        activated.</p>
+                    <button onclick="window.location.href='dashboard.html'" class="btn-porto">Go to Dashboard</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        let selected = '';
+        let currentTotal = 50000;
+        let isFree = false;
+
+        function applyPromo() {
+            const code = document.getElementById('promoCode').value.toUpperCase();
+            const status = document.getElementById('promoStatus');
+            const totalDisplay = document.getElementById('sessionTotal');
+            const payBtn = document.getElementById('payBtn');
+
+            status.style.display = 'block';
+
+            if (code === 'FREE-SESSION' || code === 'NGO-PARTNER') {
+                isFree = true;
+                currentTotal = 0;
+                totalDisplay.innerText = 'UGX 0 (Covered)';
+                payBtn.innerText = 'Activate Free Session';
+                status.innerText = '✓ Coupon Applied: 100% Discount Activated.';
+                status.style.color = '#0d9488';
+
+                // Hide payment methods for free sessions
+                document.getElementById('paymentMethods').style.display = 'none';
+                document.getElementById('paymentForm').style.display = 'block';
+                document.getElementById('phoneLabel').style.display = 'none';
+                document.getElementById('phoneInput').style.display = 'none';
+            } else if (code === 'SAVE-50') {
+                currentTotal = 25000;
+                totalDisplay.innerText = 'UGX 25,000';
+                payBtn.innerText = 'Pay UGX 25,000';
+                status.innerText = '✓ Promo Applied: 50% Partner Discount.';
+                status.style.color = '#0d9488';
+            } else {
+                status.innerText = '× Invalid or Expired Code.';
+                status.style.color = '#e36159';
+            }
+        }
+
+        function selectProvider(provider, element) {
+            selected = provider;
+            document.querySelectorAll('.payment-card').forEach(c => c.classList.remove('active'));
+            element.classList.add('active');
+
+            const form = document.getElementById('paymentForm');
+            const label = document.getElementById('phoneLabel');
+            form.style.display = 'block';
+            label.innerText = (provider === 'mtn') ? 'MTN Phone Number' : 'Airtel Phone Number';
+
+            form.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function processPayment(e) {
+            e.preventDefault();
+            document.getElementById('paymentForm').style.display = 'none';
+            document.getElementById('paymentMethods').style.display = 'none';
+            document.getElementById('processingState').style.display = 'block';
+
+            const successMsg = isFree ? 'Your Free Session is now active!' : 'Your Clinical Care session has been activated.';
+            document.getElementById('successTitle').innerText = isFree ? 'Session Activated!' : 'Payment Successful!';
+            document.getElementById('successText').innerText = successMsg;
+
+            setTimeout(() => {
+                document.getElementById('processingState').style.display = 'none';
+                document.getElementById('successState').style.display = 'block';
+            }, 3000);
+        }
+
+        // Admin Helper (For simulation)
+        window.adminGenerateCode = function (type) {
+            const code = type === 'free' ? 'FREE-' + Math.random().toString(36).substr(2, 6).toUpperCase() : 'SAVE-' + Math.random().toString(36).substr(2, 6).toUpperCase();
+            alert('Admin Console: New ' + type + ' code generated: ' + code + '\n(Logic: Code added to clinical database)');
+        };
+
+        lucide.createIcons();
+    </script>
+
+    <style>
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</body>
+
+</html>

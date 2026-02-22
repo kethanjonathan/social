@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>CareConnect Uganda - Professional Online Social Work & Counseling</title>
+	<meta name="description"
+		content="Secure and confidential online counseling, trauma support, and social work services in Uganda. Connecting survivors and families with verified clinical specialists.">
+
+	<!-- UI Clone Styles -->
+	<link rel="stylesheet" href="styles.css">
+
+	<!-- Icons -->
+	<script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+	<!-- Header Top UI Clone -->
+	<div class="header-top">
+		<div class="container" style="display: flex; justify-content: space-between;">
+			<div>
+				<span style="margin-right: 20px;">Toll Free: <strong>0800 202 791</strong></span>
+				<span>Email: <a href="mailto:info@actvuganda.org">info@actvuganda.org</a></span>
+			</div>
+			<div>
+				<span>Follow Us: <i data-lucide="facebook" size="14"></i> <i data-lucide="twitter" size="14"></i></span>
+			</div>
+		</div>
+	</div>
+
+	<!-- Main Header UI Clone -->
+	<header id="header">
+		<div class="header-container">
+			<div class="header-logo">
+				<a href="#">
+					<div style="display: flex; align-items: center; gap: 10px;">
+						<i data-lucide="shield-check" color="#004a99" size="50"></i>
+						<h1 style="font-size: 24px; color: #004a99; margin: 0;">CareConnect UGANDA</h1>
+					</div>
+				</a>
+			</div>
+			<nav class="header-nav">
+				<a href="index.html" class="active">Home</a>
+				<a href="social-workers.html">Social Workers</a>
+				<a href="groups.html">Group Sessions</a>
+				<a href="organizations.html">Organizations</a>
+				<a href="plans.html">Pricing & Plans</a>
+				<a href="resources.html">Resources</a>
+				<a href="contact.html">Contact Us</a>
+				<a href="login.html" class="btn-porto" style="padding: 8px 15px; color: #fff;">Client
+					Portal</a>
+				<button class="theme-toggle"
+					style="background: none; border: none; cursor: pointer; color: var(--porto-primary); margin-left: 15px; display: flex; align-items: center;"
+					title="Toggle Dark/Light Mode">
+					<i class="theme-icon" data-lucide="moon" size="18"></i>
+				</button>
+			</nav>
+		</div>
+	</header>
+
+	<main id="mainContent">
+		<!-- Hero Slider Simulation -->
+		<section class="owl-slider">
+			<div class="slide-item"
+				style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://actvuganda.org/wp-content/uploads/2023/03/treatment-1024x683-1.jpg');">
+				<div class="slide-content">
+					<h2 style="font-size: 60px;">Your Journey to Healing, Connected Online</h2>
+					<p style="font-size: 20px; color: #fff;">Professional counseling and social support tailored to
+						empower individuals and families across Uganda.</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- Impact CTA Box -->
+		<div class="container">
+			<div class="impact-box">
+				<div
+					style="display: flex; align-items: center; justify-content: space-around; flex-wrap: wrap; gap: 20px;">
+					<div style="text-align: left;">
+						<h2 style="margin: 0;">Need Professional Support?</h2>
+						<p style="margin: 0; opacity: 0.9;">Book a secure, confidential consultation with our clinical
+							team.</p>
+					</div>
+					<div style="display: flex; gap: 15px;">
+						<a href="book.html" class="btn-porto" style="background: #fff; color: #004a99;">Book a
+							Session</a>
+						<a href="social-workers.html" class="btn-porto"
+							style="background: transparent; border: 2px solid #fff; color: #fff;">Find a Social
+							Worker</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Professional Support Options -->
+		<section class="section" style="padding: 60px 0; background: #fff;">
+			<div class="container">
+				<div style="text-align: center; margin-bottom: 50px;">
+					<h2 style="font-size: 32px; margin-bottom: 10px;">Tailored <strong>Social Support</strong> Pathways
+					</h2>
+					<p style="font-size: 16px; color: #777;">Choose the professional care pathway that best fits your
+						current needs.</p>
+				</div>
+				<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px;">
+					<!-- Option 1: Main Homepage Focus -->
+					<div class="team-item"
+						style="text-align: left; padding: 45px; border-bottom: 4px solid var(--porto-primary); display: flex; flex-direction: column; height: 100%;">
+						<div style="flex-grow: 1;">
+							<h3 style="color: var(--porto-primary); font-size: 22px; margin-bottom: 20px;">Accessible
+								Online Counseling & Social Support</h3>
+							<p style="font-size: 15px; line-height: 1.8; color: #666; margin-bottom: 0;">Professional
+								social workers ready to support you through secure online counseling, easy appointment
+								booking, and confidential care—anywhere in Uganda.</p>
+						</div>
+						<button class="btn-porto" style="margin-top: 30px; align-self: flex-start; padding: 12px 25px;"
+							onclick="showBooking()">Book a Session</button>
+					</div>
+
+					<!-- Option 2: Family & Wellbeing -->
+					<div class="team-item"
+						style="text-align: left; padding: 45px; border-bottom: 4px solid var(--porto-primary); display: flex; flex-direction: column; height: 100%;">
+						<div style="flex-grow: 1;">
+							<h3 style="color: var(--porto-primary); font-size: 22px; margin-bottom: 20px;">Empowering
+								Individuals and Families Through Online Social Care</h3>
+							<p style="color: #666; margin-bottom: 0;">Get
+								professional counseling and social work support for trauma, violence, family challenges
+								and mental wellbeing through secure online sessions and easy appointment booking.</p>
+						</div>
+						<button class="btn-porto" style="margin-top: 30px; align-self: flex-start; padding: 12px 25px;"
+							onclick="showBooking()">Find a Social Worker</button>
+					</div>
+
+					<!-- Option 3: Immediate Access -->
+					<div class="team-item"
+						style="text-align: left; padding: 45px; border-bottom: 4px solid var(--porto-primary); display: flex; flex-direction: column; height: 100%;">
+						<div style="flex-grow: 1;">
+							<h3 style="color: var(--porto-primary); font-size: 22px; margin-bottom: 20px;">Book a Social
+								Worker. Get Help Online. Feel Supported.</h3>
+							<p style="color: #666; margin-bottom: 0;">Connect with
+								qualified social workers and counselors, book your session instantly, and receive
+								confidential support through secure online counseling.</p>
+						</div>
+						<button class="btn-porto" style="margin-top: 30px; align-self: flex-start; padding: 12px 25px;"
+							onclick="showBooking()">Start Your Appointment</button>
+					</div>
+
+					<!-- Option 4: Specialized Survivor Support -->
+					<div class="team-item"
+						style="text-align: left; padding: 45px; border-bottom: 4px solid var(--porto-secondary); display: flex; flex-direction: column; height: 100%;">
+						<div style="flex-grow: 1;">
+							<h3 style="color: var(--porto-secondary); font-size: 22px; margin-bottom: 20px;">Specialized
+								Online Support for Survivors and Vulnerable Communities</h3>
+							<p style="color: #666; margin-bottom: 0;">Our platform
+								connects you to trained social workers for trauma, violence and family-related
+								challenges through private online counseling and simple appointment booking.</p>
+						</div>
+						<button class="btn-porto"
+							style="margin-top: 30px; align-self: flex-start; background: var(--porto-secondary); padding: 12px 25px;"
+							onclick="showBooking()">Get Support Now</button>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- How It Works Section -->
+		<section id="how-it-works" class="section" style="background: #fdfdfd; border-top: 1px solid #eee;">
+			<div class="container">
+				<div
+					style="text-align: center; margin-bottom: 60px; max-width: 800px; margin-left: auto; margin-right: auto;">
+					<h2 style="font-size: 36px; color: var(--porto-primary);">Accessible <strong>Online
+							Counseling</strong> & Social Support</h2>
+					<p style="font-size: 18px; line-height: 1.6; color: #666;">Professional social workers ready to
+						support you through secure online counseling, easy appointment booking, and confidential
+						care—anywhere in Uganda.</p>
+				</div>
+
+				<div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+					<!-- Step 1 -->
+					<div style="text-align: center; padding: 20px;">
+						<div
+							style="width: 80px; height: 80px; background: var(--porto-primary); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; font-size: 28px; font-weight: 800; box-shadow: 0 5px 15px rgba(0,74,153,0.3);">
+							1</div>
+						<h4 style="font-size: 18px; margin-bottom: 15px;">Find a Social Worker</h4>
+						<p style="font-size: 14px; line-height: 1.6; color: #777;">Browse qualified social workers and
+							counselors and choose the one who fits your needs.</p>
+					</div>
+
+					<!-- Step 2 -->
+					<div style="text-align: center; padding: 20px;">
+						<div
+							style="width: 80px; height: 80px; background: var(--porto-primary); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; font-size: 28px; font-weight: 800; box-shadow: 0 5px 15px rgba(0,74,153,0.3);">
+							2</div>
+						<h4 style="font-size: 18px; margin-bottom: 15px;">Book Your Appointment</h4>
+						<p style="font-size: 14px; line-height: 1.6; color: #777;">Select a date and time and book your
+							session online in just a few clicks.</p>
+					</div>
+
+					<!-- Step 3 -->
+					<div style="text-align: center; padding: 20px;">
+						<div
+							style="width: 80px; height: 80px; background: var(--porto-primary); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; font-size: 28px; font-weight: 800; box-shadow: 0 5px 15px rgba(0,74,153,0.3);">
+							3</div>
+						<h4 style="font-size: 18px; margin-bottom: 15px;">Attend Your Online Session</h4>
+						<p style="font-size: 14px; line-height: 1.6; color: #777;">Join your counseling session securely
+							from your phone or computer.</p>
+					</div>
+
+					<!-- Step 4 -->
+					<div style="text-align: center; padding: 20px;">
+						<div
+							style="width: 80px; height: 80px; background: var(--porto-secondary); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; font-size: 28px; font-weight: 800; box-shadow: 0 5px 15px rgba(227,97,89,0.3);">
+							4</div>
+						<h4 style="font-size: 18px; margin-bottom: 15px;">Get Ongoing Support</h4>
+						<p style="font-size: 14px; line-height: 1.6; color: #777;">Chat securely with your social
+							worker, manage your appointments, and access helpful resources anytime.</p>
+					</div>
+				</div>
+
+				<div style="text-align: center; margin-top: 50px;">
+					<button class="btn-porto" style="padding: 15px 40px; font-size: 16px;" onclick="showBooking()">Start
+						Your Journey Now</button>
+				</div>
+			</div>
+		</section>
+
+		<!-- About Section UI Clone -->
+		<section id="about" class="section">
+			<div class="container" style="display: grid; grid-template-columns: 2fr 1fr; gap: 40px;">
+				<div>
+					<h2>Welcome to <strong>CareConnect Uganda</strong></h2>
+					<p class="text-justify">CareConnect Uganda is a non-governmental organization that provides
+						specialized medical and
+						psychological care to survivors of torture and violence.</p>
+					<p class="text-justify">Our mission is to advocate for a world free from torture and to provide
+						holistic healing to those who have suffered.</p>
+					<button class="btn-porto" style="margin-top: 10px;">Read More</button>
+				</div>
+				<div>
+					<div class="team-item" style="border: none;">
+						<div style="background: var(--porto-primary); color: #fff; padding: 40px;">
+							<h3>Crisis Support</h3>
+							<p>Available 24/7 if you are in immediate danger or need urgent counselor support.</p>
+							<h2 style="color: #fff; margin-top: 20px;">0800 202 791</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Clinical Services Section -->
+		<section id="services" class="section" style="background: #f4f4f4;">
+			<div class="container">
+				<div style="text-align: center; margin-bottom: 40px;">
+					<h2>What <strong>We Do</strong></h2>
+					<p>Explore our specialized rehabilitation services.</p>
+				</div>
+				<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;">
+					<div class="team-item">
+						<div class="thumb"><i data-lucide="brain" color="#fff" stroke-width="2"></i></div>
+						<div class="info">
+							<h4>Mental Health</h4>
+							<span>Counselling & Therapy</span>
+							<p style="margin-top: 15px; font-size: 13px;">Specialized psychological care for trauma
+								recovery.</p>
+						</div>
+					</div>
+					<div class="team-item">
+						<div class="thumb"><i data-lucide="activity" color="#fff" stroke-width="2"></i></div>
+						<div class="info">
+							<h4>Medical Care</h4>
+							<span>Physical Rehabilitation</span>
+							<p style="margin-top: 15px; font-size: 13px;">Addressing physical injuries from torture.</p>
+						</div>
+					</div>
+					<div class="team-item">
+						<div class="thumb"><i data-lucide="users" color="#fff" stroke-width="2"></i></div>
+						<div class="info">
+							<h4>Social Support</h4>
+							<span>Community Reintegration</span>
+							<p style="margin-top: 15px; font-size: 13px;">Empowering survivors for a new beginning.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Organization CTA Section -->
+		<section style="padding: 60px 0; background: #fff;">
+			<div class="container">
+				<div
+					style="background: linear-gradient(135deg, var(--porto-primary) 0%, #002d5a 100%); padding: 60px; border-radius: 12px; color: #fff; display: grid; grid-template-columns: 1fr 300px; gap: 40px; align-items: center; box-shadow: 0 15px 40px rgba(0,74,153,0.2);">
+					<div>
+						<h2 style="color: #fff; font-size: 32px; margin-bottom: 20px;">Institutional <strong>Support for
+								Schools & NGOs</strong></h2>
+						<p style="font-size: 18px; opacity: 0.9; line-height: 1.6;">Does your school, organization, or
+							company need specialized mental health support? We offer group counseling, staff wellbeing
+							workshops, and clinical training across Uganda.</p>
+					</div>
+					<div style="text-align: center;">
+						<a href="organizations.html" class="btn-porto"
+							style="background: var(--porto-secondary); padding: 15px 30px; font-size: 16px; display: inline-block;">Partner
+							With Us</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Team Section -->
+		<section id="team" class="section">
+			<div class="container">
+				<h2>Our <strong>Clinical Team</strong></h2>
+				<div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 30px;">
+					<div class="team-item">
+						<div class="thumb" style="height: 100px;">
+							<transition name="fade">
+								<i data-lucide="user" color="#fff" stroke-width="2"></i>
+							</transition>
+						</div>
+						<div class="info">
+							<div
+								style="display: flex; align-items: center; justify-content: center; gap: 5px; margin-bottom: 5px;">
+								<h4 style="margin: 0;">Mr. Kamuze Jonathan</h4>
+								<i data-lucide="badge-check" size="16" color="#0d9488"
+									title="Verified Social Worker"></i>
+							</div>
+							<span>Certified Social Worker</span>
+							<p
+								style="font-size: 10px; color: #0d9488; font-weight: 800; text-transform: uppercase; margin-top: 5px;">
+								✔ Verified Social Worker</p>
+						</div>
+					</div>
+					<div class="team-item">
+						<div class="thumb" style="height: 100px;">
+							<i data-lucide="user" color="#fff" stroke-width="2"></i>
+						</div>
+						<div class="info">
+							<div
+								style="display: flex; align-items: center; justify-content: center; gap: 5px; margin-bottom: 5px;">
+								<h4 style="margin: 0;">Mrs. Calamus</h4>
+								<i data-lucide="badge-check" size="16" color="#0d9488"
+									title="Verified Social Worker"></i>
+							</div>
+							<span>Certified Social Worker</span>
+							<p
+								style="font-size: 10px; color: #0d9488; font-weight: 800; text-transform: uppercase; margin-top: 5px;">
+								✔ Verified Social Worker</p>
+						</div>
+					</div>
+					<div class="team-item">
+						<div class="thumb" style="height: 100px;">
+							<i data-lucide="user" color="#fff" stroke-width="2"></i>
+						</div>
+						<div class="info">
+							<div
+								style="display: flex; align-items: center; justify-content: center; gap: 5px; margin-bottom: 5px;">
+								<h4 style="margin: 0;">Mr. Bwayo Ivan</h4>
+								<i data-lucide="badge-check" size="16" color="#0d9488"
+									title="Verified Social Worker"></i>
+							</div>
+							<span>Certified Social Worker</span>
+							<p
+								style="font-size: 10px; color: #0d9488; font-weight: 800; text-transform: uppercase; margin-top: 5px;">
+								✔ Verified Social Worker</p>
+						</div>
+					</div>
+					<div class="team-item">
+						<div class="thumb" style="height: 100px;">
+							<i data-lucide="user" color="#fff" stroke-width="2"></i>
+						</div>
+						<div class="info">
+							<div
+								style="display: flex; align-items: center; justify-content: center; gap: 5px; margin-bottom: 5px;">
+								<h4 style="margin: 0;">Mrs. Nankya Florence</h4>
+								<i data-lucide="badge-check" size="16" color="#0d9488"
+									title="Verified Social Worker"></i>
+							</div>
+							<span>Certified Social Worker</span>
+							<p
+								style="font-size: 10px; color: #0d9488; font-weight: 800; text-transform: uppercase; margin-top: 5px;">
+								✔ Verified Social Worker</p>
+						</div>
+					</div>
+					<div class="team-item">
+						<div class="thumb" style="height: 100px;">
+							<i data-lucide="user" color="#fff" stroke-width="2"></i>
+						</div>
+						<div class="info">
+							<div
+								style="display: flex; align-items: center; justify-content: center; gap: 5px; margin-bottom: 5px;">
+								<h4 style="margin: 0;">Mr. Kiseka Vicente</h4>
+								<i data-lucide="badge-check" size="16" color="#0d9488"
+									title="Verified Social Worker"></i>
+							</div>
+							<span>Certified Social Worker</span>
+							<p
+								style="font-size: 10px; color: #0d9488; font-weight: 800; text-transform: uppercase; margin-top: 5px;">
+								✔ Verified Social Worker</p>
+						</div>
+					</div>
+					<div class="team-item">
+						<div class="thumb" style="height: 100px;">
+							<i data-lucide="user" color="#fff" stroke-width="2"></i>
+						</div>
+						<div class="info">
+							<div
+								style="display: flex; align-items: center; justify-content: center; gap: 5px; margin-bottom: 5px;">
+								<h4 style="margin: 0;">Mr. SSebuyungo Marvin</h4>
+								<i data-lucide="badge-check" size="16" color="#0d9488"
+									title="Verified Social Worker"></i>
+							</div>
+							<span>Certified Social Worker</span>
+							<p
+								style="font-size: 10px; color: #0d9488; font-weight: 800; text-transform: uppercase; margin-top: 5px;">
+								✔ Verified Social Worker</p>
+						</div>
+					</div>
+					<div class="team-item">
+						<div class="thumb" style="height: 100px;">
+							<i data-lucide="user" color="#fff" stroke-width="2"></i>
+						</div>
+						<div class="info">
+							<div
+								style="display: flex; align-items: center; justify-content: center; gap: 5px; margin-bottom: 5px;">
+								<h4 style="margin: 0;">Mr. Ssekayiba Martin</h4>
+								<i data-lucide="badge-check" size="16" color="#0d9488"
+									title="Verified Social Worker"></i>
+							</div>
+							<span>Certified Social Worker</span>
+							<p
+								style="font-size: 10px; color: #0d9488; font-weight: 800; text-transform: uppercase; margin-top: 5px;">
+								✔ Verified Social Worker</p>
+						</div>
+					</div>
+					<div class="team-item">
+						<div class="thumb" style="height: 100px;">
+							<i data-lucide="user" color="#fff" stroke-width="2"></i>
+						</div>
+						<div class="info">
+							<div
+								style="display: flex; align-items: center; justify-content: center; gap: 5px; margin-bottom: 5px;">
+								<h4 style="margin: 0;">Kirabo Vicky</h4>
+								<i data-lucide="badge-check" size="16" color="#0d9488"
+									title="Verified Social Worker"></i>
+							</div>
+							<span>Certified Social Worker</span>
+							<p
+								style="font-size: 10px; color: #0d9488; font-weight: 800; text-transform: uppercase; margin-top: 5px;">
+								✔ Verified Social Worker</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<!-- Portal Dashboard (Integrated into Clone UI) -->
+	<div id="portalContent" style="display: none; padding: 60px 0;">
+		<div class="container">
+			<div
+				style="display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid var(--porto-primary); padding-bottom: 15px; margin-bottom: 30px;">
+				<h2>Client <strong>Dashboard</strong></h2>
+				<button class="btn-porto" style="background: #444;" onclick="logout()">Logout</button>
+			</div>
+
+			<div class="portal-wrapper">
+				<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px;">
+					<div style="background: #fff; padding: 30px; border-left: 10px solid var(--porto-primary);">
+						<h3>Upcoming Appointment</h3>
+						<p><strong>Feb 18, 2026 @ 2:00 PM</strong></p>
+						<p>Service: Individual Therapy</p>
+						<button class="btn-porto" style="margin-top: 20px;">Join Video Studio</button>
+					</div>
+					<div style="background: #fff; padding: 30px; border-left: 10px solid #777;">
+						<h3>Secure Inbox</h3>
+						<p>You have 2 new messages from clinical staff.</p>
+						<button class="btn-porto" style="background: #777; margin-top: 20px;">Open Messages</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modals (Portal and Booking) -->
+	<div id="loginModal" class="modal" style="background: rgba(0,0,0,0.8);">
+		<div class="modal-inner" style="max-width: 400px; padding: 40px; border-top: 5px solid var(--porto-primary);">
+			<span class="close-modal" style="float: right; cursor: pointer;">&times;</span>
+			<h2 style="text-align: center; margin-bottom: 30px;">Member <strong>Login</strong></h2>
+			<form id="loginForm">
+				<div style="margin-bottom: 15px;">
+					<label style="display: block; margin-bottom: 5px; font-weight: 700;">Email Address</label>
+					<input type="email" required style="width: 100%; padding: 10px; border: 1px solid #ddd;">
+				</div>
+				<div style="margin-bottom: 25px;">
+					<label style="display: block; margin-bottom: 5px; font-weight: 700;">Password</label>
+					<input type="password" required style="width: 100%; padding: 10px; border: 1px solid #ddd;">
+				</div>
+				<div style="margin-bottom: 25px; display: flex; gap: 10px; align-items: flex-start;">
+					<input type="checkbox" id="termsCheck" required style="margin-top: 4px;">
+					<label for="termsCheck" style="font-size: 13px; color: #666;">I have read and agree to the <a
+							href="terms.html" style="color: var(--porto-primary); font-weight: 700;">Terms of
+							Service</a> and <a href="privacy.html"
+							style="color: var(--porto-primary); font-weight: 700;">Privacy Policy</a>.</label>
+				</div>
+				<button type="submit" class="btn-porto" style="width: 100%;">Create Secure Account</button>
+			</form>
+		</div>
+	</div>
+
+	<div id="bookingModal" class="modal" style="background: rgba(0,0,0,0.8);">
+		<div class="modal-inner" style="max-width: 600px; padding: 40px; border-top: 5px solid var(--porto-primary);">
+			<span class="close-modal" style="float: right; cursor: pointer;">&times;</span>
+			<h2 style="margin-bottom: 20px;">Book a <strong>Consultation</strong></h2>
+			<div id="bookingContent">
+				<p>Select service type to proceed:</p>
+				<div style="display: grid; gap: 10px; margin-top: 20px;">
+					<button class="btn-porto"
+						style="background: #fff; color: var(--porto-primary); border: 2px solid var(--porto-primary);"
+						onclick="selectType('Individual')">Individual Therapy</button>
+					<button class="btn-porto"
+						style="background: #fff; color: var(--porto-primary); border: 2px solid var(--porto-primary);"
+						onclick="selectType('Medical')">Medical Rehabilitation</button>
+				</div>
+				<button class="btn-porto" style="width: 100%; margin-top: 20px;" onclick="nextBookingStep(2)">Proceed
+					&rarr;</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- Footer UI Clone -->
+	<footer id="footer">
+		<div class="container">
+			<div style="display: grid; grid-template-columns: 2fr 1fr 1.5fr; gap: 50px;">
+				<div>
+					<h4 style="color: #fff;">CareConnect UGANDA</h4>
+					<p>CareConnect Uganda is a non-governmental organization that provides specialized medical and
+						psychological care to survivors of torture.</p>
+				</div>
+				<div>
+					<h4>Legal & Support</h4>
+					<ul style="list-style: none; font-size: 13px;">
+						<li><a href="social-workers.html" style="color: #a0a0a0;">Our Specialists</a></li>
+						<li><a href="privacy.html" style="color: #a0a0a0;">Privacy & Confidentiality</a></li>
+						<li><a href="terms.html" style="color: #a0a0a0;">Terms of Service</a></li>
+						<li><a href="complaints.html" style="color: #a0a0a0;">Complaints & Concerns</a></li>
+						<li><a href="contact.html" style="color: #a0a0a0;">Support</a></li>
+						<li><a href="apply-social-worker.html" style="color: #a0a0a0;">Apply as Specialist</a></li>
+						<li><a href="apply-volunteer.html" style="color: #a0a0a0;">Join as Volunteer</a></li>
+						<li><a href="admin-login.html" style="color: #a0a0a0;">Admin Panel</a></li>
+					</ul>
+				</div>
+				<div>
+					<h4>Crisis Support</h4>
+					<p style="font-weight: 700; color: #fff; margin-bottom: 5px;">Toll Free: 0800 202 791</p>
+					<p style="font-size: 12px; opacity: 0.8;">Kampala, Uganda</p>
+					<div
+						style="margin-top: 15px; padding: 10px; background: rgba(227,97,89,0.1); border-left: 3px solid var(--porto-secondary);">
+						<p style="font-size: 11px; color: var(--porto-secondary); margin: 0; font-weight: 700;">NOT FOR
+							EMERGENCIES</p>
+						<p style="font-size: 10px; color: #aaa; margin: 5px 0 0;">If you are in immediate danger, please
+							contact local emergency services.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer-bottom">
+			<div class="container" style="text-align: center;">
+				<p>&copy; 2026 CareConnect Uganda. All Rights Reserved.</p>
+			</div>
+		</div>
+	</footer>
+
+	<script src="app.js"></script>
+</body>
+
+</html>

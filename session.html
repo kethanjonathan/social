@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Session - CareConnect Uganda</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body style="background: #1a1a1a; color: #fff; height: 100vh; overflow: hidden; display: flex; flex-direction: column;">
+    <!-- Minimal Header for Session -->
+    <header
+        style="background: #000; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center;">
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <i data-lucide="shield-check" color="#0d9488" size="24"></i>
+            <span style="font-weight: 700; font-size: 16px;">Live Session: Mr. Kamuze Jonathan & <span
+                    style="color: #0d9488;">John Doe</span>
+                <span id="sessionTypeTag"
+                    style="font-size: 10px; background: #333; padding: 2px 8px; border-radius: 10px; margin-left: 10px; color: #aaa;">AUDIO
+                    CONNECTED</span>
+            </span>
+        </div>
+        <div>
+            <span id="sessionTimer" style="font-family: monospace; font-size: 18px; margin-right: 20px;">45:00</span>
+            <a href="dashboard.html" class="btn-porto"
+                style="background: #e36159; padding: 8px 20px; font-size: 12px;">End Session</a>
+        </div>
+    </header>
+
+    <main style="flex: 1; display: grid; grid-template-columns: 1fr 350px; padding: 20px; gap: 20px;">
+        <!-- Main Interaction Area -->
+        <div
+            style="background: #222; border-radius: 8px; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 1px solid #333;">
+            <div id="audioVisualizer" style="text-align: center;">
+                <div
+                    style="width: 150px; height: 150px; background: #0d94881a; border: 2px solid #0d9488; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 30px; animation: pulse 2s infinite;">
+                    <i data-lucide="mic" size="60" color="#0d9488"></i>
+                </div>
+                <h3 style="color: #fff; margin-bottom: 10px;">Audio Session Active</h3>
+                <p style="color: #666; font-size: 14px;">Mr. Kamuze Jonathan is listening...</p>
+            </div>
+
+            <!-- Session Controls -->
+            <div
+                style="position: absolute; bottom: 30px; display: flex; gap: 20px; background: #000000a6; padding: 15px 30px; border-radius: 50px; backdrop-filter: blur(10px); align-items: center;">
+                <!-- Low-Data Toggles -->
+                <button id="modeBtn-video" title="Video Mode" onclick="toggleSessionMode('video')"
+                    style="background: #1890ff; border: none; color: #fff; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer;"><i
+                        data-lucide="video" size="20"></i></button>
+                <button id="modeBtn-audio" title="Audio Only (Low Data)" onclick="toggleSessionMode('audio')"
+                    style="background: #444; border: none; color: #fff; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer;"><i
+                        data-lucide="mic" size="20"></i></button>
+                <button id="modeBtn-chat" title="Chat Only (Ultra Low Data)" onclick="toggleSessionMode('chat')"
+                    style="background: #444; border: none; color: #fff; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer;"><i
+                        data-lucide="message-square" size="20"></i></button>
+
+                <div style="width: 1px; height: 30px; background: #333; margin: 0 10px;"></div>
+
+                <!-- Session Controls -->
+                <button id="micToggleBtn" title="Mute Microphone" onclick="toggleMic()"
+                    style="background: #444; border: none; color: #fff; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+                    <i data-lucide="mic" id="micToggleIcon" size="20"></i>
+                </button>
+
+                <button id="recordBtn" title="Start Recording" onclick="toggleRecording()"
+                    style="background: #444; border: none; color: #fff; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; position: relative;">
+                    <i data-lucide="circle" size="20" id="recordIcon"></i>
+                    <span id="recordingIndicator"
+                        style="display: none; position: absolute; top: -5px; right: -5px; width: 12px; height: 12px; background: #e36159; border-radius: 50%; border: 2px solid #000; animation: blink 1s infinite;"></span>
+                </button>
+
+                <!-- Volume Control -->
+                <div
+                    style="display: flex; align-items: center; gap: 10px; background: #333; padding: 5px 15px; border-radius: 25px;">
+                    <i data-lucide="volume-2" id="volumeIcon" size="18" color="#888"></i>
+                    <input type="range" min="0" max="100" value="80"
+                        style="width: 80px; cursor: pointer; accent-color: #0d9488;" oninput="updateVolume(this.value)">
+                </div>
+            </div>
+
+            <script>
+                let isRecording = false;
+                function toggleRecording() {
+                    isRecording = !isRecording;
+                    const btn = document.getElementById('recordBtn');
+                    const indicator = document.getElementById('recordingIndicator');
+                    const icon = document.getElementById('recordIcon');
+
+                    if (isRecording) {
+                        btn.style.background = '#e361591a';
+                        btn.style.border = '1px solid #e36159';
+                        indicator.style.display = 'block';
+                        icon.style.color = '#e36159';
+                        alert('Recording Started. This session is now being recorded for clinical records and referral verification.');
+                    } else {
+                        btn.style.background = '#444';
+                        btn.style.border = 'none';
+                        indicator.style.display = 'none';
+                        icon.style.color = '#fff';
+                        alert('Recording Saved. The file has been securely uploaded to your clinical record.');
+                    }
+                }
+            </script>
+
+            <style>
+                @keyframes pulse {
+                    0% {
+                        transform: scale(1);
+                        box-shadow: 0 0 0 0 rgba(13, 148, 136, 0.4);
+                    }
+
+                    70% {
+                        transform: scale(1.05);
+                        box-shadow: 0 0 0 20px rgba(13, 148, 136, 0);
+                    }
+
+                    100% {
+                        transform: scale(1);
+                        box-shadow: 0 0 0 0 rgba(13, 148, 136, 0);
+                    }
+                }
+
+                @keyframes blink {
+                    0% {
+                        opacity: 1;
+                    }
+
+                    50% {
+                        opacity: 0;
+                    }
+
+                    100% {
+                        opacity: 1;
+                    }
+                }
+            </style>
+        </div>
+
+        <!-- Session Controls & Chat -->
+        <div
+            style="background: #2a2a2a; border-radius: 8px; display: flex; flex-direction: column; overflow: hidden; border: 1px solid #333;">
+            <div
+                style="padding: 20px; border-bottom: 1px solid #3a3a3a; background: #222; display: flex; align-items: center; justify-content: space-between;">
+                <div>
+                    <h4 style="margin: 0;">Clinical Chat: <strong>John Doe</strong></h4>
+                    <p style="font-size: 11px; color: #888; margin: 0;">Specialist: Mr. Kamuze (Encrypted)</p>
+                </div>
+                <div style="width: 10px; height: 10px; background: #52c41a; border-radius: 50%;" title="Online"></div>
+            </div>
+
+            <!-- Chat Messages Area -->
+            <div id="chatMessages"
+                style="flex: 1; padding: 20px; overflow-y: auto; background: #1a1a1a; display: flex; flex-direction: column; gap: 15px;">
+                <!-- Incoming Message (Specialist) -->
+                <div style="align-self: flex-start; max-width: 85%;">
+                    <p style="font-size: 11px; color: #aaa; margin: 0 0 5px 5px; font-weight: 700;">Mr. Kamuze</p>
+                    <div
+                        style="background: #333; color: #fff; padding: 12px 16px; border-radius: 0 15px 15px 15px; font-size: 13px; line-height: 1.5; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
+                        Hello John, I've just reviewed your previous notes. How are you feeling today?
+                        <div style="text-align: right; font-size: 9px; color: #888; margin-top: 5px;">10:02 AM</div>
+                    </div>
+                </div>
+
+                <!-- Outgoing Message (Client - Simulated) -->
+                <div style="align-self: flex-end; max-width: 85%;">
+                    <div
+                        style="background: #0d9488; color: #fff; padding: 12px 16px; border-radius: 15px 15px 0 15px; font-size: 13px; line-height: 1.5; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                        I'm feeling a bit anxious, but I'm ready for our session.
+                        <div style="text-align: right; font-size: 9px; color: #e0f2f1; margin-top: 5px;">10:04 AM ✓✓
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Refer Client Context Button -->
+            <div
+                style="padding: 10px 20px; background: #222; border-top: 1px solid #3a3a3a; display: flex; justify-content: center;">
+                <button class="btn-porto" style="background: #444; font-size: 11px; padding: 8px 15px; width: 100%;"
+                    onclick="showReferralModal()">
+                    <i data-lucide="user-plus" size="14" style="margin-right: 5px;"></i> Refer Client
+                </button>
+            </div>
+
+            <!-- Message Input Panel -->
+            <div style="padding: 20px; background: #222; border-top: 1px solid #3a3a3a;">
+                <form id="chatForm" onsubmit="handleChatSubmit(event)" style="display: flex; gap: 10px;">
+                    <input type="text" id="chatInput" placeholder="Message Mr. Kamuze..."
+                        style="flex: 1; background: #111; border: 1px solid #444; color: #fff; padding: 12px 15px; border-radius: 25px; font-size: 13px;">
+                    <button type="submit" class="btn-porto"
+                        style="width: 45px; height: 45px; border-radius: 50%; padding: 0; display: flex; align-items: center; justify-content: center; background: #0d9488;">
+                        <i data-lucide="send" size="18"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+    <script>
+        // Simple timer logic
+        let time = 2700; // 45 mins
+        setInterval(() => {
+            time--;
+            let mins = Math.floor(time / 60);
+            let secs = time % 60;
+            document.getElementById('sessionTimer').innerText = `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+        }, 1000);
+    </script>
+</body>
+
+</html>

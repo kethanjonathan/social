@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mr. Kamuze Jonathan Profile - CareConnect Uganda</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+    <header id="header">
+        <div class="header-container">
+            <div class="header-logo"><a href="index.html">
+                    <div style="display: flex; align-items: center; gap: 10px;"><i data-lucide="shield-check"
+                            color="#004a99" size="50"></i>
+                        <h1 style="font-size: 24px; color: #004a99; margin: 0;">CareConnect UGANDA</h1>
+                    </div>
+                </a></div>
+            <nav class="header-nav"><a href="index.html">Home</a><a href="social-workers.html" class="active">Social
+                    Workers</a><a href="resources.html">Resources</a><a href="contact.html">Contact Us</a><a
+                    href="login.html" class="btn-porto" style="padding: 8px 15px; font-size: 11px; color: #fff;">Client
+                    Portal</a></nav>
+        </div>
+    </header>
+
+    <script src="social-workers-data.js"></script>
+    <main class="section">
+        <div class="container">
+            <div id="profileContent" style="display: grid; grid-template-columns: 1fr 2fr; gap: 50px;">
+                <!-- Sidebar -->
+                <div>
+                    <div
+                        style="background: #eee; height: 350px; display: flex; align-items: center; justify-content: center; border-radius: 4px; margin-bottom: 25px;">
+                        <i data-lucide="user" size="120" color="#aaa"></i>
+                    </div>
+                    <div class="portal-wrapper">
+                        <h3>Book an Appointment</h3>
+                        <p style="font-size: 13px; margin-bottom: 20px;">Secure your session today.</p>
+                        <a id="bookLink" href="#" class="btn-porto"
+                            style="width: 100%; display: block; text-align: center;">Book Now</a>
+                    </div>
+                </div>
+
+                <!-- Bio Content -->
+                <div>
+                    <h2 style="font-size: 32px; margin-bottom: 10px;"><span id="workerName">Loading...</span></h2>
+                    <p id="workerTitle"
+                        style="color: var(--porto-primary); font-weight: 700; font-size: 18px; margin-bottom: 25px;">
+                        Social Worker</p>
+
+                    <h3>About <strong><span id="workerNameShort">Specialist</span></strong></h3>
+                    <p id="workerAbout" class="text-justify">Loading biography...</p>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 40px;">
+                        <div>
+                            <h4>Areas of <strong>Support</strong></h4>
+                            <ul id="workerAreas" style="list-style: disc; padding-left: 20px;">
+                                <li>Loading...</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Availability</h4>
+                            <p id="workerAvailability"><strong>Mon - Fri:</strong> 8:00 AM - 5:00 PM</p>
+                            <p><strong>Session Type:</strong> Secure Online Video</p>
+                            <p><strong>Languages:</strong> <span id="workerLanguages">English</span></p>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 60px; padding-top: 40px; border-top: 1px solid #eee;">
+                        <h3>Client <strong>Reviews</strong></h3>
+
+                        <div style="margin-top: 30px;">
+                            <div class="portal-wrapper"
+                                style="background: #fdfdfd; padding: 30px; margin-bottom: 20px;">
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
+                                    <div class="star-rating" id="workerRating">
+                                        <!-- Stars injected here -->
+                                    </div>
+                                    <span style="font-size: 12px; color: #999;">Verified Review</span>
+                                </div>
+                                <p style="font-size: 14px; color: #444; font-style: italic;">"The session was incredibly
+                                    helpful. I felt heard and understood throughout the process."</p>
+                                <p style="margin-top: 10px; font-weight: 700; font-size: 12px;">- Anonymous Client</p>
+                            </div>
+
+                            <!-- Rate Specialist Form -->
+                            <div class="portal-wrapper" style="background: #f4f7fa; padding: 40px; margin-top: 40px;">
+                                <h4>Leave a <strong>Review</strong></h4>
+                                <p style="font-size: 13px; color: #777; margin-bottom: 25px;">Your feedback helps us
+                                    maintain the highest quality of clinical care.</p>
+
+                                <form
+                                    onsubmit="event.preventDefault(); alert('Thank you for your feedback!'); location.reload();">
+                                    <div style="margin-bottom: 20px;">
+                                        <label style="display: block; font-weight: 700; margin-bottom: 10px;">Your
+                                            Rating</label>
+                                        <div class="rating">
+                                            <input type="radio" name="rating" id="star5" value="5"><label for="star5"
+                                                title="5 stars"></label>
+                                            <input type="radio" name="rating" id="star4" value="4"><label for="star4"
+                                                title="4 stars"></label>
+                                            <input type="radio" name="rating" id="star3" value="3"><label for="star3"
+                                                title="3 stars"></label>
+                                            <input type="radio" name="rating" id="star2" value="2"><label for="star2"
+                                                title="2 stars"></label>
+                                            <input type="radio" name="rating" id="star1" value="1"><label for="star1"
+                                                title="1 star"></label>
+                                        </div>
+                                    </div>
+                                    <div style="margin-bottom: 20px;">
+                                        <label style="display: block; font-weight: 700; margin-bottom: 8px;">Your
+                                            Review</label>
+                                        <textarea required placeholder="Share your experience (Confidential)"
+                                            style="width: 100%; height: 100px; padding: 15px; border: 1px solid #ddd; border-radius: 4px; font-family: inherit; font-size: 14px;"></textarea>
+                                    </div>
+                                    <button type="submit" class="btn-porto">Submit Review</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const workerId = urlParams.get('id');
+            const worker = getWorkerById(workerId || 1); // Default to ID 1 if not found
+
+            if (worker) {
+                document.title = `${worker.name} - Profile`;
+                document.getElementById('workerName').innerText = worker.name;
+                document.getElementById('workerNameShort').innerText = worker.name.split(' ').slice(0, 2).join(' '); // Rough short name
+                document.getElementById('workerTitle').innerText = worker.title;
+                document.getElementById('workerAbout').innerText = worker.about;
+                document.getElementById('workerAvailability').innerHTML = `<strong>Availability:</strong> ${worker.availability}`;
+                document.getElementById('workerLanguages').innerText = worker.languages.join(', ');
+                document.getElementById('bookLink').href = `book.html?id=${worker.id}`;
+
+                const areasList = document.getElementById('workerAreas');
+                areasList.innerHTML = worker.areas.map(area => `<li>${area}</li>`).join('');
+
+                const ratingContainer = document.getElementById('workerRating');
+                let starsHtml = '';
+                for (let i = 1; i <= 5; i++) {
+                    const fill = i <= Math.round(worker.rating) ? '#ffc107' : 'none';
+                    starsHtml += `<i data-lucide="star" fill="${fill}" size="12" color="${i <= Math.round(worker.rating) ? '#ffc107' : '#ddd'}"></i>`;
+                }
+                ratingContainer.innerHTML = starsHtml;
+                lucide.createIcons();
+            } else {
+                document.getElementById('profileContent').innerHTML = '<div style="text-align: center; padding: 50px;"><h3>Specialist Not Found</h3><a href="social-workers.html" class="btn-porto">Return to Directory</a></div>';
+            }
+        });
+    </script>
+
+    <footer id="footer">
+        <div class="container" style="text-align: center;">
+            <p>&copy; 2026 CareConnect Uganda. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <script src="app.js"></script>
+</body>
+
+</html>

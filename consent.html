@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informed Consent - CareConnect Uganda</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body style="background: #fdfdfd;">
+    <header id="header">
+        <div class="header-container">
+            <div class="header-logo"><a href="index.html">
+                    <div style="display: flex; align-items: center; gap: 10px;"><i data-lucide="shield-check"
+                            color="#004a99" size="50"></i>
+                        <h1 style="font-size: 24px; color: #004a99; margin: 0;">CareConnect</h1>
+                    </div>
+                </a></div>
+            <nav class="header-nav"><a href="dashboard.html">My Dashboard</a><button onclick="window.history.back();"
+                    class="btn-porto" style="background: #444; padding: 6px 15px; font-size: 11px;">Go Back</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="section">
+        <div class="container" style="max-width: 800px;">
+            <div class="portal-wrapper" style="background: #fff; padding: 50px;">
+                <h2 style="text-align: center; margin-bottom: 30px;">Informed <strong>Consent</strong> for Treatment
+                </h2>
+
+                <div style="font-size: 14px; line-height: 1.8; color: #444;">
+                    <p>Welcome to CareConnect Uganda. Before we begin our journey together, it is important that you
+                        understand the nature of our social support and clinical services.</p>
+
+                    <h4 style="margin-top: 25px;">1. Nature of Services</h4>
+                    <p>I understand that CareConnect provides medical and psychological support, which may involve
+                        discussing difficult life experiences. These sessions are designed to facilitate healing and
+                        reintegration.</p>
+
+                    <h4 style="margin-top: 25px;">2. Confidentiality & Privacy</h4>
+                    <p>I understand that all information shared is strictly confidential. My records will be kept
+                        securely. Exceptions to confidentiality include situations where there is a clear danger to
+                        myself or others, or as required by Ugandan law.</p>
+
+                    <h4 style="margin-top: 25px;">3. Session Recording & Documentation</h4>
+                    <p>I understand that sessions may be recorded for clinical record-keeping, specialist supervision,
+                        referral verification, and service quality assurance ("Prove"). I will be notified whenever a
+                        recording is active, and these recordings are protected under the same strict confidentiality
+                        standards as my written notes.</p>
+
+                    <h4 style="margin-top: 25px;">4. Online Sessions (Telehealth)</h4>
+                    <p>I consent to engaging in sessions via secure video/chat. I understand that I am responsible for
+                        ensuring a private and safe environment on my end for these discussions.</p>
+
+                    <h4 style="margin-top: 25px;">4. Voluntary Participation</h4>
+                    <p>I understand that my participation is voluntary, and I have the right to withdraw from treatment
+                        at any time without penalty.</p>
+                </div>
+
+                <div style="margin-top: 40px; padding-top: 30px; border-top: 2px solid #eee;">
+                    <form
+                        onsubmit="event.preventDefault(); alert('Consent Signed Successfully!'); window.location.href='dashboard.html';">
+                        <div style="margin-bottom: 25px;">
+                            <label style="display: block; font-weight: 700; margin-bottom: 10px;">Electronic Signature
+                                (Type Full Name)</label>
+                            <input type="text" required placeholder="John Doe"
+                                style="width: 100%; padding: 15px; border: 1px solid #ddd; border-bottom: 2px solid var(--porto-primary); font-family: 'Open Sans', sans-serif; font-size: 18px;">
+                        </div>
+
+                        <div style="display: flex; gap: 10px; align-items: flex-start; margin-bottom: 30px;">
+                            <input type="checkbox" required id="consentCheck">
+                            <label for="consentCheck" style="font-size: 13px; color: #666;">I have read and fully
+                                understand the Informed Consent document above. By typing my name and checking this box,
+                                I am providing my legal electronic signature.</label>
+                        </div>
+
+                        <button type="submit" class="btn-porto"
+                            style="width: 100%; padding: 15px; font-size: 16px;">Sign & Submit Consent</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer id="footer">
+        <div class="container" style="text-align: center;">
+            <p>&copy; 2026 CareConnect Uganda. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <script src="app.js"></script>
+</body>
+
+</html>

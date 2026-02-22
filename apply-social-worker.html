@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply as Specialist - CareConnect Uganda</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .apply-container {
+            max-width: 700px;
+            margin: 100px auto;
+            padding: 40px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 700;
+            font-size: 13px;
+            margin-bottom: 8px;
+            color: #444;
+            text-transform: uppercase;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 14px;
+        }
+
+        .file-upload {
+            border: 2px dashed #ddd;
+            padding: 30px;
+            text-align: center;
+            border-radius: 8px;
+            background: #f9f9f9;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .file-upload:hover {
+            border-color: var(--porto-primary);
+            background: #fff;
+        }
+    </style>
+</head>
+
+<body style="background: #f0f2f5;">
+    <div class="apply-container">
+        <div class="form-header">
+            <i data-lucide="user-plus" color="#004a99" size="48"></i>
+            <h2 style="margin: 15px 0 5px;">Specialist <strong>Application</strong></h2>
+            <p style="color: #777;">Join our network of professional social workers and clinical specialists.</p>
+        </div>
+
+        <form
+            onsubmit="event.preventDefault(); alert('Application Submitted! Our admin team will review your qualifications and documents.'); window.location.href='index.html';">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" placeholder="e.g. Mukasa David" required>
+                </div>
+                <div class="form-group">
+                    <label>Official Email</label>
+                    <input type="email" placeholder="email@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="text" placeholder="+256..." required>
+                </div>
+                <div class="form-group">
+                    <label>Professional Experience (Years)</label>
+                    <input type="number" placeholder="e.g. 5" required>
+                </div>
+                <div class="form-group full-width">
+                    <label>Academic Qualifications</label>
+                    <textarea placeholder="e.g. Master of Social Work - Makerere University" style="height: 80px;"
+                        required></textarea>
+                </div>
+                <div class="form-group full-width">
+                    <label>Professional Experience Details</label>
+                    <textarea placeholder="Briefly describe your clinical background..." style="height: 100px;"
+                        required></textarea>
+                </div>
+                <div class="form-group full-width">
+                    <label>Certificates & ID (PDF/Image)</label>
+                    <div class="file-upload" onclick="document.getElementById('fileInput').click()">
+                        <i data-lucide="upload-cloud" size="32" color="#888"></i>
+                        <p style="margin: 10px 0 0; font-size: 13px; color: #666;">Click to upload professional licenses
+                            and academic certificates</p>
+                        <input type="file" id="fileInput" style="display: none;" multiple>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-porto" style="width: 100%; padding: 16px; margin-top: 20px;">Submit
+                Application for Review</button>
+            <p style="text-align: center; font-size: 12px; color: #888; margin-top: 15px;">By submitting, you agree to
+                our terms of service and professional code of conduct.</p>
+        </form>
+    </div>
+    <script>lucide.createIcons();</script>
+</body>
+
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - CareConnect Uganda</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body style="background: #f4f4f4; display: flex; flex-direction: column; min-height: 100vh;">
+    <header id="header">
+        <div class="header-container" style="height: 80px;">
+            <div class="header-logo"><a href="index.html">
+                    <div style="display: flex; align-items: center; gap: 10px;"><i data-lucide="shield-check"
+                            color="#004a99" size="40"></i>
+                        <h1 style="font-size: 20px; color: #004a99; margin: 0;">CareConnect</h1>
+                    </div>
+                </a></div>
+            <button class="theme-toggle"
+                style="background: none; border: none; cursor: pointer; color: var(--porto-primary); margin-left: auto; display: flex; align-items: center;"
+                title="Toggle Dark/Light Mode">
+                <i class="theme-icon" data-lucide="moon" size="18"></i>
+            </button>
+        </div>
+    </header>
+
+    <main style="flex: 1; display: flex; align-items: center; justify-content: center; padding: 40px 20px;">
+        <div class="portal-wrapper"
+            style="background: #fff; width: 100%; max-width: 500px; padding: 40px; box-shadow: 0 10px 25px rgba(0,0,0,0.05);">
+            <h2 style="text-align: center; margin-bottom: 20px;">Create <strong>Account</strong></h2>
+            <div
+                style="background: #fff8f8; border: 1px solid #fee2e2; padding: 12px; border-radius: 6px; margin-bottom: 25px; font-size: 12px; color: #991b1b; text-align: center;">
+                <i data-lucide="info" size="14" style="vertical-align: middle; margin-right: 5px;"></i>
+                <strong>Age Rule:</strong> 18+ years only. Minors must be supported through a guardian.
+            </div>
+            <form action="client/dashboard.html"
+                onsubmit="localStorage.setItem('adminLoggedIn', 'true'); localStorage.setItem('userRole', 'Client');">
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; font-weight: 700; margin-bottom: 8px;">Full Name</label>
+                    <input type="text" required placeholder="Enter your full name"
+                        style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px;">
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                    <div>
+                        <label style="display: block; font-weight: 700; margin-bottom: 8px;">Email Address</label>
+                        <input type="email" required placeholder="email@example.com"
+                            style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px;">
+                    </div>
+                    <div>
+                        <label style="display: block; font-weight: 700; margin-bottom: 8px;">Phone Number</label>
+                        <input type="tel" required placeholder="07XX XXX XXX"
+                            style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px;">
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <h4
+                        style="margin: 0 0 15px 0; color: #444; font-size: 14px; border-bottom: 1px solid #eee; padding-bottom: 8px;">
+                        Basic Biodata (Safe & Professional)</h4>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div>
+                            <label
+                                style="display: block; font-weight: 700; margin-bottom: 8px; font-size: 13px;">Gender</label>
+                            <select
+                                style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 13px;">
+                                <option value="">- Select -</option>
+                                <option value="female">Female</option>
+                                <option value="male">Male</option>
+                                <option value="other">Other</option>
+                                <option value="prefer-not-to-say">Prefer not to say</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label style="display: block; font-weight: 700; margin-bottom: 8px; font-size: 13px;">Age
+                                Range</label>
+                            <select required
+                                style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 13px;">
+                                <option value="">- Select -</option>
+                                <option value="0-12">Child (0-12)</option>
+                                <option value="13-24">Youth (13-24)</option>
+                                <option value="25-45">Adult (25-45)</option>
+                                <option value="46+">Senior (46+)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                    <div>
+                        <label style="display: block; font-weight: 700; margin-bottom: 8px; font-size: 13px;">District /
+                            Town</label>
+                        <input type="text" required placeholder="e.g. Kampala, Gulu"
+                            style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 13px;">
+                    </div>
+                    <div>
+                        <label style="display: block; font-weight: 700; margin-bottom: 8px; font-size: 13px;">Preferred
+                            Language</label>
+                        <select required
+                            style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 13px;">
+                            <option value="english">English</option>
+                            <option value="luganda">Luganda</option>
+                            <option value="swahili">Swahili</option>
+                            <option value="acholi">Acholi</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 25px;">
+                    <label style="display: block; font-weight: 700; margin-bottom: 8px;">Create Password</label>
+                    <input type="password" required
+                        style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px;">
+                </div>
+
+                <div style="margin-bottom: 25px; display: flex; gap: 10px; align-items: flex-start;">
+                    <input type="checkbox" required id="legal-consent" style="margin-top: 5px;">
+                    <label for="legal-consent" style="font-size: 13px; color: #666;">I agree to the <a href="terms.html"
+                            style="color: var(--porto-primary); font-weight: 700;">Terms of Service</a> and <a
+                            href="privacy.html" style="color: var(--porto-primary); font-weight: 700;">Privacy
+                            Policy</a>, and understand
+                        that my information is strictly confidential.</label>
+                </div>
+
+                <button type="submit" class="btn-porto" style="width: 100%; padding: 14px; font-size: 16px;">Register
+                    Now</button>
+            </form>
+
+            <div style="margin-top: 25px; text-align: center;">
+                <p style="font-size: 13px; color: #777; margin-bottom: 15px;">— Or create account with —</p>
+                <button
+                    onclick="localStorage.setItem('adminLoggedIn', 'true'); localStorage.setItem('userRole', 'Client'); window.location.href='client/dashboard.html';"
+                    style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px; background: #fff; border: 1px solid #ddd; padding: 12px; border-radius: 4px; cursor: pointer; font-size: 14px; color: #444; font-weight: 700;">
+                    <img src="https://www.gstatic.com/images/branding/product/1x/gsa_512dp.png" width="18"
+                        alt="Google Logo">
+                    Sign up with Google
+                </button>
+            </div>
+            <p style="text-align: center; margin-top: 25px; font-size: 14px;">Already have an account? <a
+                    href="login.html" style="font-weight: 700;">Login here</a></p>
+        </div>
+    </main>
+    <script src="app.js"></script>
+</body>
+
+</html>

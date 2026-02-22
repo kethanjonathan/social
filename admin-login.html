@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - CareConnect Uganda</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            background: #f0f2f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-card {
+            background: #fff;
+            width: 100%;
+            max-width: 400px;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .login-logo {
+            margin-bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .form-group {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 700;
+            font-size: 13px;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus {
+            border-color: var(--porto-primary);
+        }
+
+        .login-footer {
+            margin-top: 25px;
+            font-size: 12px;
+            color: #888;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-card">
+        <div class="login-logo">
+            <i data-lucide="shield-check" color="#004a99" size="48"></i>
+            <h2 style="margin: 0; font-size: 22px;">Admin <strong>Portal</strong></h2>
+            <p style="font-size: 13px; color: #777; margin: 0;">CareConnect Uganda Clinical Management</p>
+        </div>
+
+        <form onsubmit="handleLogin(event)">
+            <div class="form-group">
+                <label>Admin Email</label>
+                <input type="email" id="adminEmail" required placeholder="admin@careconnect.org">
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" id="adminPassword" required placeholder="••••••••">
+            </div>
+            <button type="submit" class="btn-porto" style="width: 100%; padding: 14px;">Log In to Command
+                Center</button>
+        </form>
+
+        <div style="margin-top: 20px; text-align: center;">
+            <p style="font-size: 13px; color: #777; margin-bottom: 15px;">— Or access with —</p>
+            <button onclick="loginWithGoogle()"
+                style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px; background: #fff; border: 1px solid #ddd; padding: 12px; border-radius: 4px; cursor: pointer; font-size: 14px; color: #444; font-weight: 700;">
+                <img src="https://www.gstatic.com/images/branding/product/1x/gsa_512dp.png" width="18"
+                    alt="Google Logo">
+                Continue with Google
+            </button>
+        </div>
+
+        <div class="login-footer">
+            <p>&copy; 2026 CareConnect Uganda. Authorized Personnel Only.</p>
+            <a href="index.html" style="font-size: 11px; margin-top: 10px; display: inline-block;">Return to Main
+                Website</a>
+        </div>
+    </div>
+
+    <script>
+        function handleLogin(e) {
+            e.preventDefault();
+            const email = document.getElementById('adminEmail').value;
+
+            let role = 'Super Admin';
+            if (email.includes('manager')) role = 'Manager';
+            if (email.includes('volunteer')) role = 'Volunteer';
+            if (email.includes('worker')) role = 'Social Worker';
+
+            localStorage.setItem('adminLoggedIn', 'true');
+            localStorage.setItem('userRole', role);
+
+            if (role === 'Social Worker') {
+                window.location.href = 'worker-dashboard.html';
+            } else {
+                window.location.href = 'admin/dashboard.html';
+            }
+        }
+
+        function loginWithGoogle() {
+            localStorage.setItem('adminLoggedIn', 'true');
+            localStorage.setItem('userRole', 'Super Admin');
+            window.location.href = 'admin/dashboard.html';
+        }
+
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
