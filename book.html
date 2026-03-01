@@ -42,8 +42,7 @@
                     <strong>CareConnect Rule:</strong> This platform is for users 18+. Below 18 must use a guardian.
                 </div>
 
-                <form id="bookingForm"
-                    onsubmit="event.preventDefault(); alert('Booking Confirmed! An SMS and Email reminder has been sent to your registered device.'); window.location.href='dashboard.html';">
+                <form id="bookingForm" onsubmit="handleBooking(event)">
                     <!-- Service Category Buttons -->
                     <div style="margin-bottom: 30px;">
                         <label style="display: block; font-weight: 700; margin-bottom: 12px;">Select Service
@@ -104,6 +103,10 @@
                                     <option value="family">Family & Relationships</option>
                                     <option value="child">Child Protection</option>
                                     <option value="medical">Physical Injury</option>
+                                    <option value="mental">General Mental Wellbeing</option>
+                                    <option value="social">Social Reintegration</option>
+                                    <option value="court">Legal & Court Social Support</option>
+                                    <option value="other">Other / Not Listed</option>
                                 </select>
                             </div>
                             <div>
@@ -232,6 +235,9 @@
                                 <option value="child">Child Protection / Welfare</option>
                                 <option value="gender">Gender-Based Violence Support</option>
                                 <option value="medical">Medical / Disability Rehabilitation</option>
+                                <option value="mental">General Mental Health Support</option>
+                                <option value="reintegration">Community Reintegration</option>
+                                <option value="disability">Disability & Inclusion Support</option>
                                 <option value="other">Other (Please describe below)</option>
                             </select>
                         </div>
@@ -265,6 +271,14 @@
                     <button type="submit" class="btn-porto" style="width: 100%; padding: 15px; font-size: 16px;">Confirm
                         Your Booking</button>
                 </form>
+                <script>
+                    function handleBooking(e) {
+                        e.preventDefault();
+                        const email = "your registered email"; // Simplified for demo
+                        alert(`Booking Confirmed!\n\nA confirmation email has been sent to ${email} with your session details.\n\nPlease check your inbox and spam folder.`);
+                        window.location.href = 'client/dashboard.html';
+                    }
+                </script>
             </div>
         </div>
     </main>

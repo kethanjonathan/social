@@ -14,7 +14,7 @@
         <div class="container" style="display: flex; justify-content: space-between;">
             <div>
                 <span style="margin-right: 20px;">Toll Free: <strong>0800 202 791</strong></span>
-                <span>Email: <a href="mailto:info@careconnect.org">info@careconnect.org</a></span>
+                <span>Email: <a href="mailto:info@careconnectuganda.com">info@careconnectuganda.com</a></span>
             </div>
             <div><span>Follow Us: <i data-lucide="facebook" size="14"></i> <i data-lucide="twitter"
                         size="14"></i></span></div>
@@ -26,8 +26,9 @@
             <div class="header-logo">
                 <a href="index.html">
                     <div style="display: flex; align-items: center; gap: 10px;">
-                        <i data-lucide="shield-check" color="#004a99" size="50"></i>
-                        <h1 style="font-size: 20px; color: #004a99; margin: 0;">CareConnect</h1>
+                        <i data-lucide="shield-check" color="#004a99" size="42"></i>
+                        <h1 style="font-size: 20px; color: #004a99; margin: 0; letter-spacing: -0.5px;">CareConnect
+                            <strong>UGANDA</strong></h1>
                     </div>
                 </a>
             </div>
@@ -44,8 +45,7 @@
                 <a href="plans.html">Pricing & Plans</a>
                 <a href="resources.html">Resources</a>
                 <a href="contact.html">Contact Us</a>
-                <a href="login.html" class="btn-porto" style="padding: 8px 15px; color: #fff;">Client
-                    Portal</a>
+                <a href="login.html" class="btn-porto">Client Portal</a>
                 <button class="theme-toggle"
                     style="background: none; border: none; cursor: pointer; color: var(--porto-primary); margin-left: 15px; display: flex; align-items: center;"
                     title="Toggle Dark/Light Mode">
@@ -390,8 +390,8 @@
             <div style="display: grid; grid-template-columns: 2fr 1fr 1.5fr; gap: 50px;">
                 <div>
                     <h4 style="color: #fff;">CareConnect UGANDA</h4>
-                    <p>CareConnect Uganda is a non-governmental organization that provides specialized medical and
-                        psychological care to survivors of torture.</p>
+                    <p>CareConnect Uganda is an online platform connecting you with verified social workers and
+                        counselors for confidential, secure sessions, available across Uganda.</p>
                 </div>
                 <div>
                     <h4>Legal & Support</h4>
@@ -400,7 +400,12 @@
                         <li><a href="privacy.html" style="color: #a0a0a0;">Privacy & Confidentiality</a></li>
                         <li><a href="complaints.html" style="color: #a0a0a0;">Complaints & Concerns</a></li>
                         <li><a href="contact.html" style="color: #a0a0a0;">Support</a></li>
-                        <li><a href="admin-login.html" style="color: #a0a0a0;">Admin Panel</a></li>
+                        <li style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #444;">
+                            <a href="admin-login.html"
+                                style="color: #fff; font-weight: 700; display: flex; align-items: center; gap: 8px;">
+                                <i data-lucide="shield-lock" size="14"></i> Staff & Admin Login
+                            </a>
+                        </li>
                     </ul>
                 </div>
                 <div>
@@ -423,6 +428,27 @@
             </div>
         </div>
     </footer>
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            if (menu) menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+        }
+        function checkWidth() {
+            const toggle = document.querySelector('.mobile-menu-toggle');
+            const nav = document.querySelector('.header-nav');
+            if (window.innerWidth <= 991) {
+                if (toggle) toggle.style.display = 'block';
+                if (nav) nav.style.display = 'none';
+            } else {
+                if (toggle) toggle.style.display = 'none';
+                if (nav) nav.style.display = 'flex';
+                const mm = document.getElementById('mobileMenu');
+                if (mm) mm.style.display = 'none';
+            }
+        }
+        window.addEventListener('resize', checkWidth);
+        window.addEventListener('load', checkWidth);
+    </script>
     <script src="app.js"></script>
 </body>
 

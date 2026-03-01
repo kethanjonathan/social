@@ -87,6 +87,12 @@
                 <label>Password</label>
                 <input type="password" id="adminPassword" required placeholder="••••••••">
             </div>
+            <div class="form-group">
+                <label>Platform ID Number</label>
+                <input type="text" id="adminID" required placeholder="e.g. ADM-1234, SPC-5678">
+                <p style="font-size: 10px; color: #777; margin-top: 5px;">Required for clinical & admin personnel
+                    access.</p>
+            </div>
             <button type="submit" class="btn-porto" style="width: 100%; padding: 14px;">Log In to Command
                 Center</button>
         </form>
@@ -112,25 +118,44 @@
         function handleLogin(e) {
             e.preventDefault();
             const email = document.getElementById('adminEmail').value;
+            const staffID = document.getElementById('adminID').value.toUpperCase();
 
             let role = 'Super Admin';
-            if (email.includes('manager')) role = 'Manager';
-            if (email.includes('volunteer')) role = 'Volunteer';
-            if (email.includes('worker')) role = 'Social Worker';
+            let idPrefix = 'ADM';
+
+            if (email.includes('manager')) { role = 'Manager'; idPrefix = 'ADM'; }
+            if (email.includes('volunteer')) { role = 'Volunteer'; idPrefix = 'VOL'; }
+            if (email.includes('worker')) { role = 'Social Worker'; idPrefix = 'SPC'; }
+            if (email.includes('staff')) { role = 'Staff'; idPrefix = 'STF'; }
+
+            // Validate ID Format
+            if (!staffID.startsWith(idPrefix)) {
+                alert(`Access Denied: The ID Number provided does not match the ${role} credentials. Expected format: ${idPrefix}-XXXX`);
+                return;
+            }
 
             localStorage.setItem('adminLoggedIn', 'true');
             localStorage.setItem('userRole', role);
+            localStorage.setItem('staffID', staffID);
 
             if (role === 'Social Worker') {
-                window.location.href = 'worker-dashboard.html';
+                window.location.href = 'social-worker/dashboard.html';
+            } else if (role === 'Volunteer') {
+                window.location.href = 'volunteer/dashboard.html';
             } else {
                 window.location.href = 'admin/dashboard.html';
             }
         }
 
         function loginWithGoogle() {
+            const staffID = prompt("Enter your Platform ID Number (e.g. ADM-1001) to verify Google Login:");
+            if (!staffID || staffID.length < 5) {
+                alert("Valid Platform ID is required for administrative access.");
+                return;
+            }
             localStorage.setItem('adminLoggedIn', 'true');
             localStorage.setItem('userRole', 'Super Admin');
+            localStorage.setItem('staffID', staffID);
             window.location.href = 'admin/dashboard.html';
         }
 

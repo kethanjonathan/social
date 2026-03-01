@@ -55,8 +55,7 @@
             <p style="color: #777;">Help us coordinate support and handle community follow-ups.</p>
         </div>
 
-        <form
-            onsubmit="event.preventDefault(); alert('Thank you for your interest! We will notify you once your volunteer application is reviewed.'); window.location.href='index.html';">
+        <form onsubmit="handleVolunteerSubmit(event)">
             <div class="form-group">
                 <label>Full Name</label>
                 <input type="text" placeholder="Your name" required>
@@ -81,7 +80,17 @@
                 to background checks and platform rules.</p>
         </form>
     </div>
-    <script>lucide.createIcons();</script>
+    <script>
+        function handleVolunteerSubmit(e) {
+            e.preventDefault();
+            const randomID = Math.floor(3000 + Math.random() * 900);
+            const assignedID = `VOL-${randomID}`;
+
+            alert(`Volunteer Application Successful!\n\nYour profile is pending activation. Your login credentials will be:\nRole: Volunteer\nPlatform ID: ${assignedID}\n\nPlease save this ID to use for staff login.`);
+            window.location.href = 'index.html';
+        }
+        lucide.createIcons();
+    </script>
 </body>
 
 </html>

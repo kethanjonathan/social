@@ -81,8 +81,7 @@
             <p style="color: #777;">Join our network of professional social workers and clinical specialists.</p>
         </div>
 
-        <form
-            onsubmit="event.preventDefault(); alert('Application Submitted! Our admin team will review your qualifications and documents.'); window.location.href='index.html';">
+        <form id="specialistForm" onsubmit="handleSpecialistSubmit(event)">
             <div class="form-grid">
                 <div class="form-group">
                     <label>Full Name</label>
@@ -127,7 +126,17 @@
                 our terms of service and professional code of conduct.</p>
         </form>
     </div>
-    <script>lucide.createIcons();</script>
+    <script>
+        function handleSpecialistSubmit(e) {
+            e.preventDefault();
+            const randomID = Math.floor(2000 + Math.random() * 900);
+            const assignedID = `SPC-${randomID}`;
+
+            alert(`Application Submitted Successfully!\n\nYour application is being reviewed. If approved, your credentials will be:\nRole: Specialist\nPlatform ID: ${assignedID}\n\nPlease keep this ID safe as it is required for your Clinical Dashboard login.`);
+            window.location.href = 'index.html';
+        }
+        lucide.createIcons();
+    </script>
 </body>
 
 </html>
